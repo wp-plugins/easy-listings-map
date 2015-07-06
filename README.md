@@ -61,3 +61,7 @@ Yes it is possible, please refer to [customizing markers](http://codewp.github.i
 = 1.0.0 =
 
 * First offical release!
+
+= 1.0.1 =
+
+* Fixing issues of the plugin in wordpress 3.3

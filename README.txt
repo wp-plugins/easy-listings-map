@@ -1,10 +1,10 @@
 === Easy Listings Map ===
 Contributors: c0dezer0
 Donate link: http://codewp.github.io/easy-listings-map/
-Tags: easy property listings, epl, easy property listings extension, easy property listings extensions, easy property listings map, easy property listings google maps, epl extension, epl extensions, epl map, epl google maps
+Tags: easy property listings, epl, easy property listings extension, easy property listings extensions, easy property listings map, easy property listings google maps, epl extension, epl extensions, epl map, epl google maps, property listings, property management, real estate, real estate connected
 Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,3 +79,7 @@ Yes it is possible, please refer to [customizing markers](http://codewp.github.i
 = 1.0.0 =
 
 * First offical release!
+
+= 1.0.1 =
+
+* Fixing issues of the plugin in wordpress 3.3

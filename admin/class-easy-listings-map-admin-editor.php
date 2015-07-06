@@ -90,7 +90,7 @@ class ELM_Admin_Editor extends ELM_Admin_Controller {
 			)
 		);
 
-		wp_die(); // this is required to terminate immediately and return a proper response
+		die(); // this is required to terminate immediately and return a proper response
 	}
 
 }

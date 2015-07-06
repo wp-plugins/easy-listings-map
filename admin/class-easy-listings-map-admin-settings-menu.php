@@ -82,7 +82,7 @@ class ELM_Admin_Settings_Menu extends ELM_Admin_Controller {
 		}
 
 		foreach ( $this->get_registered_settings() as $tab => $settings ) {
-			add_settings_section( 'elm_settings_' . $tab, __return_null(), '__return_false', 'elm_settings_' . $tab );
+			add_settings_section( 'elm_settings_' . $tab, null, '__return_false', 'elm_settings_' . $tab );
 
 			foreach ( $settings as $option ) {
 				$name = isset( $option['name'] ) ? $option['name'] : '';

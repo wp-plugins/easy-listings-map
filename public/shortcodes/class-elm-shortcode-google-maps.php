@@ -358,7 +358,7 @@ class ELM_Shortcode_Google_Maps {
 	public function load_map_markers() {
 		// Checking nonce.
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'elm_bound_markers' ) ) {
-			wp_die( json_encode( array( 'success' => 0, 'message' => 'Security check!' ) ) );
+			die( json_encode( array( 'success' => 0, 'message' => 'Security check!' ) ) );
 		}
 
 		$south_west_lat = (float) $_POST['southWestLat'];
@@ -410,6 +410,6 @@ class ELM_Shortcode_Google_Maps {
 			}
 		}
 
-		wp_die( json_encode( array( 'success' => 1, 'markers' => $markers ) ) );
+		die( json_encode( array( 'success' => 1, 'markers' => $markers ) ) );
 	}
 }
