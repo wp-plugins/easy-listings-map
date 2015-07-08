@@ -58,10 +58,15 @@ Yes it is possible, please refer to [customizing markers](http://codewp.github.i
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.1.0 =
 
-* First offical release!
+* New: Making maps responsive.
+* Fix: An issue in the Google Maps shortcode when setting it's title that cause map doesn't shown.
 
 = 1.0.1 =
 
-* Fixing issues of the plugin in wordpress 3.3
+* Fix: issues of the plugin in wordpress 3.3
+
+= 1.0.0 =
+
+* First offical release!
