@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author     Taher Atashbar <taher.atashbar@gmail.com>
  */
 
-class ELM_Shortcode_Google_Maps {
+class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 
 	private $data = array();
 	private $attributes = array();
@@ -197,13 +197,14 @@ class ELM_Shortcode_Google_Maps {
 		 * to output map to else where by specifying map output_div and it's id.
 		 */
 		if ( $this->attributes['output_map_div'] || ! trim( $this->attributes['map_id'] ) ) {
-			$html = '<div class="elm google-maps" id="' . esc_attr( $this->data['map_id'] ) . '" style="' .
-				( trim( $this->attributes['map_style_height'] ) ? 'height: ' . esc_attr( $this->attributes['map_style_height'] ) . 'px; ' : '' ) .
-				( trim( $this->attributes['map_style_width'] ) ?  'width: ' .esc_attr( $this->attributes['map_style_width'] ) . 'px; ' : '' ) . '"></div>';
-			if ( strlen( trim( $this->content ) ) ) {
-				$html = '<h2 class="elm listing-map-title">' . __( esc_attr( $this->content ), 'elm' ) . '</h2>' . esc_html( $html );
-			}
-			return $html;
+			$this->render_view( 'shortcodes.google-maps.default',
+				array(
+					'content' => trim( $this->content ),
+					'id'      => $this->data['map_id'],
+					'height'  => $this->attributes['map_style_height'],
+					'width'   => $this->attributes['map_style_width'],
+				)
+			);
 		}
 	}
 
