@@ -27,7 +27,7 @@ jQuery( function( $ ) {
             },
             zoomControl: true,
             zoomControlOptions: {
-              style: google.maps.ZoomControlStyle.LARGE
+              style: google.maps.ZoomControlStyle.DEFAULT
             }
         };
         map = new google.maps.Map( document.getElementById( elm_singular_map.map_id ), map_options);
@@ -39,4 +39,10 @@ jQuery( function( $ ) {
         }
     }
     google.maps.event.addDomListener(window, 'load', initialize_map);
+    google.maps.event.addDomListener(window, 'resize', function() {
+        var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(center);
+    });
+
 });

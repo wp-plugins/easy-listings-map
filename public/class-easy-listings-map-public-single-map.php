@@ -103,7 +103,6 @@ class ELM_Public_Single_Map extends ELM_Public_Controller {
 
 		$this->render_view( 'maps.singular-map-content', array(
 			'map_height'   => $this->settings['map_height'],
-			'map_width'    => $this->settings['map_width'],
 			'map_id'       => $this->data['map_id'],
 		) );
 	}

@@ -83,6 +83,11 @@ jQuery( function( $ ) {
 
     if ( 'object' === typeof google && 'object' === typeof google.maps ) {
         google.maps.event.addDomListener( window, 'load', initializeListingMap );
+        google.maps.event.addDomListener(window, 'resize', function() {
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        });
     }
 
     /**

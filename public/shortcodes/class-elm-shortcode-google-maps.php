@@ -58,7 +58,6 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 				'zoom'              => 1,
 				'map_id'            => '',
 				'output_map_div'    => true, // if == false, map will output to a div that already specified, so map_id should be sent to shortcode.
-				'map_style_width'   => '900',
 				'map_style_height'  => '500',
 				'cluster_size'		=> -1,
 				'map_types'			=> array( 'ROADMAP' ),
@@ -202,7 +201,6 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 					'content' => trim( $this->content ),
 					'id'      => $this->data['map_id'],
 					'height'  => $this->attributes['map_style_height'],
-					'width'   => $this->attributes['map_style_width'],
 				)
 			);
 		}
