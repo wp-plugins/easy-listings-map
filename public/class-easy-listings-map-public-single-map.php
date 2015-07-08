@@ -47,7 +47,6 @@ class ELM_Public_Single_Map extends ELM_Public_Controller {
 			if ( remove_action( 'epl_property_map', 'epl_property_map_default_callback' ) ) {
 				// Setting map specific settings.
 				$this->settings['map_height'] = ! empty( $elm_settings['single_page_map_height'] ) ? $elm_settings['single_page_map_height'] : '400';
-				$this->settings['map_width']  = ! empty( $elm_settings['single_page_map_width'] ) ? $elm_settings['single_page_map_width'] : '500';
 				// Setting map specific data.
 				$this->data['zoom']      = ! empty( $elm_settings['single_page_map_zoom'] ) ? trim( $elm_settings['single_page_map_zoom'] ) : '17';
 				$this->data['map_id']    = 'elm-singular-map';

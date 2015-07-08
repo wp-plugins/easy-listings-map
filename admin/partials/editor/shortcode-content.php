@@ -101,12 +101,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</div>
 			<div class="shortcode-row form-group">
-				<label class="col-sm-4 control-label" for="map_width"><?php _e( 'Map width', 'elm' ) ?></label>
-				<div class="controls col-sm-8" data-tip="<?php _e( 'Map html element width', 'elm' ) ?>">
-					<input class="form-control" type="text" value="900" name="map_width" id="map_width" />
-				</div>
-			</div>
-			<div class="shortcode-row form-group">
 				<label class="col-sm-4 control-label" for="auto_zoom"><?php _e( 'Map Auto Zoom Feature', 'elm' ) ?></label>
 				<div class="controls col-sm-8" data-tip="<?php _e( 'If enabled map will choose best zoom level for showing many of the listings in the map', 'elm' ) ?>">
 					<select class="form-control" id="auto_zoom" name="auto_zoom">

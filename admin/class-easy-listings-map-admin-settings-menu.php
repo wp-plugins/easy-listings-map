@@ -195,14 +195,6 @@ class ELM_Admin_Settings_Menu extends ELM_Admin_Controller {
 						'size' => 'small',
 						'std'  => '400',
 					),
-					'single_page_map_width' => array(
-						'id'   => 'single_page_map_width',
-						'name' => __( 'Width of single page map', 'elm' ),
-						'desc' => __( 'Single listing page map width in pixels', 'elm' ),
-						'type' => 'number',
-						'size' => 'small',
-						'std'  => '600',
-					),
 					'single_page_map_types' => array(
 						'id'      => 'single_page_map_types',
 						'name'    => __( 'Map display type', 'elm' ),
