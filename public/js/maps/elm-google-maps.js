@@ -1,6 +1,7 @@
 jQuery( function( $ ) {
     var map = infoBubble = markerClusterer = null;
-    var markers = [];   // Array of markers in the map.
+    var get_markers = true;    // Flag for checking should map get markers on bound changes or not
+    var markers = [];          // Array of markers in the map.
 
     /**
      * Initialize Google Maps for listings
@@ -63,11 +64,15 @@ jQuery( function( $ ) {
             map.setCenter( bounds.getCenter() );
             map.fitBounds( bounds );
 
+            // Don't get markers when auto zoom changes zoom level.
+            get_markers = false;
             //remove one zoom level to ensure no marker is on the edge.
             map.setZoom( map.getZoom() - 1 >= 0 ? map.getZoom() - 1 : map.getZoom() );
             // set a minimum zoom
             // if you got only 1 marker or all markers are on the same address map will be zoomed too much.
             if ( map.getZoom() > 15 ) {
+                // Don't get markers when auto zoom changes zoom level.
+                get_markers = false;
                 map.setZoom( 15 );
             }
         }
@@ -77,8 +82,11 @@ jQuery( function( $ ) {
             map.setCenter( markers[0].position );
         }
 
-        google.maps.event.addListener( map, 'dragend', getBoundMarkers );
-        google.maps.event.addListener( map, 'zoom_changed', getBoundMarkers );
+        // Load bound markers if all of listings doesn't loads already.
+        if ( '-1' !== elm_google_maps.limit ) {
+            google.maps.event.addListener( map, 'dragend', getBoundMarkers );
+            google.maps.event.addListener( map, 'zoom_changed', getBoundMarkers );
+        }
     }
 
     if ( 'object' === typeof google && 'object' === typeof google.maps ) {
@@ -146,6 +154,14 @@ jQuery( function( $ ) {
      * @return void
      */
     function getBoundMarkers() {
+        /**
+         * Checking should this function get bound markers or not.
+         * Don't get markers when auto zoom changes zoom level.
+         */
+        if ( ! get_markers ) {
+            get_markers = true;
+            return;
+        }
         // First, determine the map bounds
         var bounds = map.getBounds();
         // Then the points

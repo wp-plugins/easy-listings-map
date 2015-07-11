@@ -30,17 +30,14 @@ class ELM_Location {
 	 */
 	public function is_in_bound( $latitude, $longitude, $bound_south_west_lat, $bound_south_west_lng,
 		$bound_north_east_lat, $bound_north_east_lng ) {
-		// Checking against latitudes first.
-		if ( $latitude >= $bound_south_west_lat && $latitude <= $bound_north_east_lat ) {
-			// Checking against longitudes late.
-			$longitude = $longitude == -180 ? 180 : $longitude;
 
-			return $bound_south_west_lng > $bound_north_east_lng ?
-				( $longitude >= $bound_south_west_lng || $longitude <= $this->$bound_north_east_lng ) && ( $bound_south_west_lng - $bound_north_east_lng != 360 ) :
-				$longitude >= $bound_south_west_lng && $longitude <= $bound_north_east_lng;
-		}
+		$bound = new LatLngBounds(
+			new LatLng( $bound_south_west_lat, $bound_south_west_lng ),
+			new LatLng( $bound_north_east_lat, $bound_north_east_lng )
+		);
 
-		return false;
+		return $bound->contains( new LatLng( $latitude, $longitude ) );
+
 	}
 
 }

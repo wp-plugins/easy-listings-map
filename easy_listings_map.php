@@ -16,7 +16,7 @@
  * Plugin Name:       Easy Listings Map
  * Plugin URI:        http://codewp.github.io/easy-listings-map
  * Description:       Easy to use and advanced map extension for Easy Property Listings plugin
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            Taher Atashbar
  * Author URI:        http://codewp.github.io/easy-listings-map
  * License:           GPL-2.0+

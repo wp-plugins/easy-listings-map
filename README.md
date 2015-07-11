@@ -58,6 +58,12 @@ Yes it is possible, please refer to [customizing markers](http://codewp.github.i
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Fix : An issue that cause to not loading some of listings that are in bound of the map.
+* Fix : An issue that cause to not showing listings on the map when auto zoom feature enabled.
+* New : A feature added to not loading markers when all of them loaded to the map already.
+
 = 1.1.0 =
 
 * New: Making maps responsive.

@@ -76,6 +76,7 @@ class Easy_Listings_Map {
 		$this->plugin_name = 'easy-listings-map';
 		$this->version = '1.0.0';
 
+		$this->load_vendors();
 		$this->load_dependencies();
 		$this->define_globals();
 		// Setting locale of plugin.
@@ -153,6 +154,19 @@ class Easy_Listings_Map {
 
 		$this->loader = new Easy_Listings_Map_Loader();
 
+	}
+
+	/**
+	 * Loading third party libraries.
+	 *
+	 * @since 1.1.1
+	 * @return void
+	 */
+	private function load_vendors() {
+		/**
+		 * The class responsible for geometry functions.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'vendor/spherical-geometry/spherical-geometry.class.php';
 	}
 
 	/**

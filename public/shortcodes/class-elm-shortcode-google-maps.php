@@ -100,6 +100,7 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 			'post_type'			=> $this->attributes['post_type'],
 			'status'			=> $this->attributes['status'],
 			'order'				=> $this->attributes['order'],
+			'limit'				=> $this->attributes['limit'],
 			'default_latitude'  => $this->attributes['default_latitude'],
 			'default_longitude' => $this->attributes['default_longitude'],
 			'auto_zoom'			=> $this->attributes['auto_zoom'],
