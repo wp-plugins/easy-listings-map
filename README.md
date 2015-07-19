@@ -58,6 +58,10 @@ Yes it is possible, please refer to [customizing markers](http://codewp.github.i
 
 == Changelog ==
 
+= 1.1.2 =
+
+* Fix : An issue that caused google map shortcode shown on top of page content.
+
 = 1.1.1 =
 
 * Fix : An issue that cause to not loading some of listings that are in bound of the map.

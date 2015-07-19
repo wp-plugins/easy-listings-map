@@ -197,6 +197,7 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 		 * to output map to else where by specifying map output_div and it's id.
 		 */
 		if ( $this->attributes['output_map_div'] || ! trim( $this->attributes['map_id'] ) ) {
+			ob_start();
 			$this->render_view( 'shortcodes.google-maps.default',
 				array(
 					'content' => trim( $this->content ),
@@ -204,6 +205,7 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 					'height'  => $this->attributes['map_style_height'],
 				)
 			);
+			return ob_get_clean();
 		}
 	}
 
