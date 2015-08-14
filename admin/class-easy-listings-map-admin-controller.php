@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author     Taher Atashbar <taher.atashbar@gmail.com>
  */
 
-class ELM_Admin_Controller {
+abstract class ELM_Admin_Controller extends ELM_Controller {
 
 	/**
 	 * Rendering requested view.

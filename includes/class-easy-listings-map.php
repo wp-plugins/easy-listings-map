@@ -122,6 +122,11 @@ class Easy_Listings_Map {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-easy-listings-map-ioc.php';
 
 		/**
+		 * Base controller class of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-easy-listings-map-controller.php';
+
+		/**
 		 * The class responsible for plugin settigns.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-easy-listings-map-settings.php';

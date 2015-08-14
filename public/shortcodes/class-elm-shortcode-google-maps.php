@@ -53,6 +53,7 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 				'limit'				=> -1,	 // Show all of posts.
 				'orderby'           => 'date',
 				'order'             => 'DESC',
+				'location'			=> '',	// Location slug. Should be a name like sorrento
 				'default_latitude'  => '39.911607',
 				'default_longitude' => '-100.853613',
 				'zoom'              => 1,
@@ -85,6 +86,11 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 		// If status is not array or has not any element return.
 		if ( ! is_array( $this->attributes['status'] ) || ! count( $this->attributes['status'] ) ) {
 			return '';
+		}
+
+		// Changing location attribute to array.
+		if ( ! empty( $this->attributes['location'] ) && ! is_array( $this->attributes['location'] ) ) {
+			$this->attributes['location'] = array_map( 'trim', explode( ',', $this->attributes['location'] ) );
 		}
 
 		// Changing map_types to array
@@ -164,6 +170,15 @@ class ELM_Shortcode_Google_Maps extends ELM_Public_Controller {
 				),
 			),
 		);
+		// Adding locations to query.
+		if ( ! empty( $this->attributes['location'] ) ) {
+			$args['tax_query'][] = array(
+				'taxonomy' => 'location',
+				'field'    => 'slug',
+				'terms'    => $this->attributes['location'],
+			);
+		}
+
 		$properties = new WP_Query( $args );
 		$markers = array();
 		if ( $properties->have_posts() ) {

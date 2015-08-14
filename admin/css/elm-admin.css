@@ -46,3 +46,13 @@
 	text-align: center;
 	max-width: 150px;
 }
+
+/* shortcode-content styles */
+.elm-shortcode .shortcode-row ul#location {
+	height: 86px;
+	overflow: auto;
+	list-style-type: none;
+}
+.elm-shortcode .shortcode-row ul#location ul {
+	list-style-type: none;
+}

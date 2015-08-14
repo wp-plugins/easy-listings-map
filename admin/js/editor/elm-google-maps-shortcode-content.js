@@ -51,6 +51,11 @@
 			});
 			property_status = '"' + property_status + '"';
 
+			var location = '';
+			jQuery( '#location input:checkbox:checked' ).each( function( i, selected ) {
+				location += jQuery( selected ).val() + ( i < jQuery( '#location input:checkbox:checked' ).length - 1 ? ',' : '' );
+			});
+
 			var map_types = '';
 			jQuery( 'input:checkbox.map_types:checked' ).each( function( i, selected ) {
 				map_types += jQuery( selected ).val() + ( i < jQuery( 'input:checkbox.map_types:checked' ).length - 1 ? ',' : '' );
@@ -60,6 +65,7 @@
 			var output = '[elm_google_maps';
 			output += ' post_type=' + property_types;
 			output += ' status=' + property_status;
+			output += location.length ? ' location="' + location + '"' : '';
 			output += ' map_types=' + map_types;
 			output += ' limit="' + ( jQuery( '#limit' ).val() > -1 ? jQuery( '#limit' ).val() : '-1' ) + '"';
 			output += jQuery( '#map_height' ).val() > 0 ? ' map_style_height="' + jQuery( '#map_height' ).val() + '"' : '';

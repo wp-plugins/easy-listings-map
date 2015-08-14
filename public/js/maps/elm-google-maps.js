@@ -8,6 +8,11 @@ jQuery( function( $ ) {
      * @return void
      */
     function initializeListingMap() {
+        // If map initialized already don't init again.
+        if ( map ) {
+            return;
+        }
+
         var mapTypeIds = [];
         for ( i = 0, max = elm_google_maps.map_types.length; i < max; i++ ) {
             if ( 'ROADMAP' === elm_google_maps.map_types[i] ) {
@@ -90,11 +95,30 @@ jQuery( function( $ ) {
     }
 
     if ( 'object' === typeof google && 'object' === typeof google.maps ) {
-        google.maps.event.addDomListener( window, 'load', initializeListingMap );
+        $( function() {
+            if ( $( '#' + elm_google_maps.map_id ).is( ':visible' ) ) {
+                initializeListingMap();
+            } else {
+                // Map is inside bootstrap tabs so init map when it is visible.
+                $( 'a[data-toggle="tab"]' ).on('shown shown.bs.tab', function ( e ) {
+                    if ( $( '#' + elm_google_maps.map_id ).is( ':visible' ) ) {
+                        initializeListingMap();
+                    }
+                });
+                // Map is inside jQuery or zozoui tabs so init map when it is visible.
+                $( 'ul.ui-tabs-nav li, ul.z-tabs-nav li' ).on( 'click', function( e ) {
+                    if ( $( '#' + elm_google_maps.map_id ).is( ':visible' ) ) {
+                        initializeListingMap();
+                    }
+                });
+            }
+        });
         google.maps.event.addDomListener(window, 'resize', function() {
-            var center = map.getCenter();
-            google.maps.event.trigger(map, "resize");
-            map.setCenter(center);
+            if ( map ) {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center);
+            }
         });
     }
 

@@ -77,12 +77,16 @@ class ELM_Admin_Editor extends ELM_Admin_Controller {
 	 * @since   1.0.0
 	 */
 	public function load_shortcode_content() {
+		// Loading location walker class.
+		require_once $this->get_plugin_path() . 'includes/walkers/class-walker-location-checkbox.php';
+
 		$properties = ELM_IOC::make( 'properties' );
 
 		$this->render_view( 'editor.shortcode-content',
 			array(
 				'property_types'  => epl_get_active_post_types(),	// all of active property post types.
 				'property_status' => $properties->get_all_status(), // all of property status.
+				'location_walker' => new ELS_Walker_Location_Checkbox(),
 				'includes_url'    => includes_url(),
 				'css_url'		  => $this->admin->get_css_folder(),
 				'js_url'		  => $this->admin->get_js_folder(),

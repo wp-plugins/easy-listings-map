@@ -58,6 +58,11 @@ Yes it is possible, please refer to [customizing markers](http://codewp.github.i
 
 == Changelog ==
 
+= 1.1.3 =
+
+* New : Showing specific location listings in the map by choosing desired location from Google Maps shortcode.
+* New : Adding functionality to showing Google maps inside Bootstrap, jQuery and ZozoUi tabs.
+
 = 1.1.2 =
 
 * Fix : An issue that caused google map shortcode shown on top of page content.

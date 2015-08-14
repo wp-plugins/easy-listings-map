@@ -3,6 +3,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+/**
+ * @var ELS_Walker_Location_Checkbox $location_walker
+ */
 ?>
 <html>
 <head>
@@ -56,6 +60,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 						}
 						?>
 					</select>
+				</div>
+			</div>
+			<div class="shortcode-row form-group">
+				<label class="col-sm-4 control-label" for="location"><?php _e( 'Specific location listings', 'elm' ) ?></label>
+				<div class="controls col-sm-8" data-tip="<?php _e( 'Show listings of only specific location', 'elm' ) ?>">
+					<ul id="location" name="location" data-wp-lists="list:location" class="form-control">
+						<?php wp_terms_checklist( null, array( 'taxonomy' => 'location', 'walker' => $location_walker ) ); ?>
+					</ul>
 				</div>
 			</div>
 			<div class="shortcode-row form-group">
